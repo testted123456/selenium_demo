@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import listerner.RetryAnalyzer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AboutSeleniumPage;
@@ -12,7 +13,7 @@ public class MainTest extends BaseTest {
 
     AboutSeleniumPage aboutSeleniumPage = new AboutSeleniumPage();
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void testMain() {
         test.info("begin to test.");
         mainPage.clickAboutDropdown();

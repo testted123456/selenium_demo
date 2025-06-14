@@ -18,7 +18,7 @@ public class BaseTest {
 
     public ExtentTest test;
 
-    @BeforeSuite
+   /* @BeforeSuite
     public void beforeSuite() {
         System.out.println("before suite...");
     }
@@ -27,7 +27,7 @@ public class BaseTest {
     public void tearDownReport() {
         System.out.println("after suite...");
         extentReports.flush();
-    }
+    }*/
 
     @Parameters("browser")
     @BeforeMethod

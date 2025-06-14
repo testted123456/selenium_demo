@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -34,6 +35,22 @@ public class BasePage {
         }
 
         return true;
+    }
+
+    void acceptAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = DriverFactory.getDriver().switchTo().alert();
+
+        alert.accept();
+    }
+
+    void dismissAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = DriverFactory.getDriver().switchTo().alert();
+
+        alert.dismiss();
     }
 
 }
