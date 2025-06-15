@@ -7,7 +7,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ReportUtils {
 
     private static ExtentReports extent;
-    private static ExtentTest test;
+    private static ThreadLocal<ExtentTest> test;
 
     public static ExtentReports getInstance() {
         if (extent == null) {
@@ -18,12 +18,12 @@ public class ReportUtils {
         return extent;
     }
 
-    public static ExtentTest createTest(String testName) {
-        test = getInstance().createTest(testName);
-        return test;
-    }
+    public static ThreadLocal<ExtentTest> getTest() {
 
-    public static ExtentTest getTest() {
+        if (null == test) {
+            test = new ThreadLocal<>();
+        }
+
         return test;
     }
 
